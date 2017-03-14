@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>Divs</title>
+
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	 crossorigin="anonymous">
+
+	<!-- jquery -->
+	<script src="jquery-3.1.1.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			//click - click do mouse em cima do elemento
+			//dbclick - duplo click do mouse no elemento
+			//mousedown - apenas precionando o mouse em cima do elemento
+			//mouseover - passar o mouse em cima do elemento
+			//mouseout - tirar o mouse de cima do elemento
+
+			$('#div1').click(function () {
+				alert('elemento foi clicado');
+			});
+
+			//keydown - acionando no momento em que uma tecla é pressionada
+			//keypress - acionando no momento em que uma tecla é pressionada, porem não captura alt, ctrl, esc, shift, etc...
+			//keyup - acionada no momento em que a tecla é liberada
+
+			$('#campo1').keypress(function () {
+				alert('botao foi pressionado');
+			});
+
+			//focus - acionado quando o elemento recebe o foco do cursor
+			//blur - acionado quando o elemento perde o foco do cursor
+			//change - acionado quando o estado do elemento é modificado
+
+			$('#campo2').blur(function () {
+				alert('elemento perdeu o focus');
+			});
+
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="div1" style="height: 150px; width: 150px; background: #CCC;"></div>
+	<hr>
+	<input type="text" id="campo1" />
+	<hr>
+	<input type="text" id="campo2" />
+
+</body>
+
+</html>
