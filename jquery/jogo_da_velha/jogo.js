@@ -46,6 +46,7 @@ $(document).ready(function () {
     $('.jogada').click(function () {
         // pegando ID do campo que foi clicado no jogo da velha
         var id_campo_clicado = this.id;
+        $('#' + id_campo_clicado).off(); // não pode ser clicado novamente (recuperando ID do elemento e retirar a funcao de click)
         jogada(id_campo_clicado);
     });
 
@@ -114,13 +115,14 @@ $(document).ready(function () {
     }
 
     function ganhador(pontos) {
-        console.log(pontos);
         if (pontos == -3) {
             var jodador_1 = $('#entrada_apelido_jogador_1').val();
             alert(jodador_1 + ' é o vencedor');
+            $('.jogada').off();
         } else if (pontos == 3) {
             var jodador_2 = $('#entrada_apelido_jogador_2').val();
             alert(jodador_2 + ' é o vencedor');
+            $('.jogada').off();
         }
     }
 
