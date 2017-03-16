@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Ajax facil com JavaScript puro</title>
+
+    <!-- bootstrap - link cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <script language="javascript">
+        
+    </script>
+</head>
+
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <h3>Requisições síncronas e assíncronas</h3>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 center"></div>
+            <div class="col-md-4 center">
+                <a href="#" onclick="fazerRequisicao('pagina_1_conteudo.html', 'div_conteudo')" class="btn btn-primary">Página 1</a>
+                <a href="#" onclick="fazerRequisicao('pagina_2_conteudo.html', 'div_conteudo')" class="btn btn-primary">Página 2</a>
+                <a href="#" onclick="fazerRequisicao('pagina_3_conteudo.html', 'div_conteudo')" class="btn btn-primary">Página 3</a>
+            </div>
+            <div class="col-md-4 center"></div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <!-- conteudo da div pra ser carregado-->
+            <div class="col-md-10" id="div_conteudo">
+
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>
