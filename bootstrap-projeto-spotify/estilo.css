@@ -17,5 +17,18 @@ nav.navbar-transparente{
 nav .navbar-brand{
     padding: 5px 15px;
 }
+.divisor{
+    width: 1px;
+    height: 16px;
+    background: white;
+    margin: 16px 10px;
+}
+/* li > a (pegando filho imediato 'a' de 'li')*/
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #9bf0e1;
+}
 
 /* ====================== Tipografia ========================= */
