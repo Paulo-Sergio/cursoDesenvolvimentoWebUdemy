@@ -56,10 +56,37 @@ nav .navbar-brand{
     display: table-cell;
     vertical-align: middle;
 }
+/* botoes */
+.capa .btn-custom{
+    color: white;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    padding: 10px 35px;
+    margin: 0px 15px;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+}
+.capa .btn-custom.btn-roxo{
+    background: #7c26f8;
+}
+.capa .btn-custom.btn-roxo:hover{
+    color: white;
+    background: #6207e3;
+}
+.capa .btn-custom.btn-branco{
+    border: 2px solid white;
+}
+.capa .btn-custom.btn-branco:hover{
+    background-color: white;
+    color: black;
+}
+
 
 /* ====================== Tipografia ========================= */
 h1{
     font-size: 100px;
     font-weight: 900;
     letter-spacing: -0.06em;
+    margin-bottom: 50px;
 }
