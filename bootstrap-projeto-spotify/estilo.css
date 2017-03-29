@@ -8,6 +8,7 @@ body{
                 linear-gradient(50deg,#ff4169, #7c26f8);
     background-attachment: fixed;
     font-family: Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 /**************************************
@@ -98,6 +99,18 @@ nav .navbar-brand{
     padding: 10px 0px;
 }
 
+#recursos{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+.rotacionar{
+    transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    padding-left: 80px;
+}
+
 /* ====================== Tipografia ========================= */
 h1{
     font-size: 90px;
@@ -117,4 +130,7 @@ h3{
 }
 #servicos h2, #servicos h3{
     color: #7c26f8;
+}
+#recursos h3{
+    color: #9bf0e1;
 }
