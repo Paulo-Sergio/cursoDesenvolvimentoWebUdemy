@@ -1,6 +1,7 @@
 /* ====================== layout ========================= */
 html, body, .capa{
     height: 100%;
+    overflow: auto;
 }
 body{
     background: url('imagens/capa.png'),
@@ -65,8 +66,6 @@ nav .navbar-brand{
     border-radius: 500px;
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
-    padding: 10px 35px;
-    margin: 0px 15px;
     text-transform: uppercase;
     transition: background 0.4s, color 0.4s;
 }
@@ -99,6 +98,9 @@ nav .navbar-brand{
     padding: 10px 0px;
 }
 
+/**************************************
+********* Recursos ************
+********/
 #recursos{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -160,4 +162,36 @@ footer h4{
 }
 #recursos h3{
     color: #9bf0e1;
+}
+
+/* ====================== Media Queries ========================= */
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 50px;
+    }
+    .btn-custom {
+        margin: 10px 15px;
+    }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 70px;
+    }
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+    h1 {
+        font-size: 80px;
+    }
+}
+
+/* md */
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 100px;
+    }
 }
