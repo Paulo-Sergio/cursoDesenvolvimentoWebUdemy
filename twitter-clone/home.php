@@ -33,12 +33,25 @@
 						method: 'post',
 						data: { textoTweet: $('#texto_tweet').val() },
 						success: function(data) {
-							alert(data)
+							$('#texto_tweet').val('');
+							atualizaTweet();
 						}
 					})
-
 				}
 			})
+
+			// atualizar o feed de tweet's
+			function atualizaTweet() {
+				$.ajax({
+					url: 'getTweet.php',
+					method: 'get',
+					success: function(data) {
+						$('#tweets').html(data);
+					}
+				})
+			}
+
+			atualizaTweet();
 		})
 	</script>
 
@@ -100,6 +113,8 @@
 					</div>
 				</div>
 			</div>
+
+			<div id='tweets' class='list-group'></div>
 		</div>
 
 		<div class="col-md-3">

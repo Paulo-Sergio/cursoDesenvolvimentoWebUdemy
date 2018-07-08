@@ -19,6 +19,7 @@
   if($stmt->execute()) {
     if($stmt->rowCount() > 0) {
       $dadosUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
+      $_SESSION['idUsuario'] = $dadosUsuario['id'];
       $_SESSION['usuario'] = $dadosUsuario['usuario'];
       $_SESSION['email'] = $dadosUsuario['email'];
       header('Location: home.php');
