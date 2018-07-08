@@ -25,33 +25,35 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			// associar evento de click ao botão
-			$('#btn_tweet').click(function() {
-				if ($('#texto_tweet').val().length > 0) {
+			$('#btn_procurar_pessoa').click(function() {
+				if ($('#nome_pessoa').val().length > 0) {
 
 					$.ajax({
-						url: 'incluiTweet.php',
+						url: 'getPessoas.php',
 						method: 'post',
-						data: { textoTweet: $('#texto_tweet').val() },
+						data: $('#form_procurar_pessoas').serialize(),
 						success: function(data) {
-							$('#texto_tweet').val('');
-							atualizaTweet();
+							$('#pessoas').html(data);
+
+							$('.btn_seguir').click(function() {
+								// atributo customizado 'data-id_usuario' em cada butão se Seguir
+								var idUsuario = $(this).data('id_usuario');
+
+								$.ajax({
+									url: 'seguir.php',
+									method: 'post',
+									data: { seguirIdUsuario: idUsuario },
+									success: function(data) {
+										alert('requisição efetuada')
+									}
+								}) /** metodo ajax seguir.php */
+							})/** .btn_seguir */
 						}
-					})
+
+					})/** metodo ajax getPessoas.php */
+
 				}
-			})
-
-			// atualizar o feed de tweet's
-			function atualizaTweet() {
-				$.ajax({
-					url: 'getTweet.php',
-					method: 'get',
-					success: function(data) {
-						$('#tweets').html(data);
-					}
-				})
-			}
-
-			atualizaTweet();
+			})/** #btn_procurar_pessoa */			
 		})
 	</script>
 
@@ -75,6 +77,9 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
+          <li>
+						<a href="home.php">Home</a>
+					</li>
 					<li>
 						<a href="sair.php">Sair</a>
 					</li>
@@ -105,22 +110,22 @@
 		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="input-group">
-						<input type="text" id='texto_tweet' class='form-control' maxlength='140' placeholder='O que esta acontecendo agora?'>
+					<form id='form_procurar_pessoas' class="input-group">
+						<input type="text" id='nome_pessoa' name='nome_pessoa' class='form-control' maxlength='140' placeholder='Quem você esta procurando?'>
 						<span class='input-group-btn'>
-							<button class='btn btn-default' id='btn_tweet' type='button'>Tweet</button>
+							<button class='btn btn-default' id='btn_procurar_pessoa' type='button'>Procurar</button>
 						</span>
-					</div>
+					</form>
 				</div>
 			</div>
 
-			<div id='tweets' class='list-group'></div>
+			<div id='pessoas' class='list-group'></div>
 		</div>
 
 		<div class="col-md-3">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<h4><a href="procurarPessoas.php">Procurar por pessoas</a></h4>
+					
 				</div>
 			</div>
 		</div>
