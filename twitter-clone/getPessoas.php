@@ -26,8 +26,8 @@
       echo '<a href="#" class="list-group-item">';
         echo '<strong>'.$u['usuario'].'</strong> <small> - '.$u['email'].' </small>';
         echo '<p class="list-group-item-text pull-right">';
-          echo '<button type="button" class="btn btn-primary btn_seguir" data-id_usuario="'.$u['id'].'">Seguir</button>';
-          echo '<button type="button" class="btn btn-default btn_deixar_seguir" data-id_usuario="'.$u['id'].'">Deixar de Seguir</button>';
+          echo '<button type="button" id="btn_seguir_'.$u['id'].'" class="btn btn-primary btn_seguir" data-id_usuario="'.$u['id'].'">Seguir</button>';
+          echo '<button type="button" id="btn_deixar_seguir_'.$u['id'].'" class="btn btn-default btn_deixar_seguir" data-id_usuario="'.$u['id'].'" style="display:none">Deixar de Seguir</button>';
         echo '</p>';
         echo '<div class="clearfix"></div>';
       echo '</a>';

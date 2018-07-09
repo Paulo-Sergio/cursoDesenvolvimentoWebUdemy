@@ -39,6 +39,9 @@
 								// atributo customizado 'data-id_usuario' em cada butão se Seguir
 								var idUsuario = $(this).data('id_usuario');
 
+								$('#btn_seguir_'+idUsuario).hide();
+								$('#btn_deixar_seguir_'+idUsuario).show();
+
 								$.ajax({
 									url: 'seguir.php',
 									method: 'post',
@@ -52,6 +55,9 @@
 							$('.btn_deixar_seguir').click(function() {
 								// atributo customizado 'data-id_usuario' em cada butão se Seguir
 								var idUsuario = $(this).data('id_usuario');
+
+								$('#btn_seguir_'+idUsuario).show();
+								$('#btn_deixar_seguir_'+idUsuario).hide();
 
 								$.ajax({
 									url: 'deixarDeSeguir.php',
