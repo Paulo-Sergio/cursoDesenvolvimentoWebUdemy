@@ -48,6 +48,20 @@
 									}
 								}) /** metodo ajax seguir.php */
 							})/** .btn_seguir */
+
+							$('.btn_deixar_seguir').click(function() {
+								// atributo customizado 'data-id_usuario' em cada butão se Seguir
+								var idUsuario = $(this).data('id_usuario');
+
+								$.ajax({
+									url: 'deixarDeSeguir.php',
+									method: 'post',
+									data: { deixarDeSeguirIdUsuario: idUsuario },
+									success: function(data) {
+										alert('deixou de seguir')
+									}
+								}) /** metodo ajax seguir.php */
+							})/** .btn_deixar_seguir */
 						}
 
 					})/** metodo ajax getPessoas.php */
