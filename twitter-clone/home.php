@@ -4,6 +4,35 @@
 
 	if (!isset($_SESSION['usuario'])) {
 		header('Location: index.php?erro=1');
+		die();
+	}
+
+	require_once('db.class.php');
+	$pdo = new db();
+	$connection = $pdo->conectaMysql();
+
+	$idUsuario = $_SESSION['idUsuario'];
+
+	// Qtde de tweets
+	$qtdeTweets = 0;
+	$sql = "SELECT COUNT(*) AS qtde_tweets FROM tweet WHERE id_usuario = :idUsuario";
+	$stmt = $connection->prepare($sql);
+	$stmt->bindValue(':idUsuario', $idUsuario);
+	$stmt->execute();
+	if($stmt->rowCount() > 0) {
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		$qtdeTweets = $result['qtde_tweets'];
+	}
+
+	// Qtde de seguidores
+	$qtdeSeguidores = 0;
+	$sql = "SELECT COUNT(*) AS qtde_seguidores FROM usuarios_seguidores WHERE seguindo_id_usuario = :idUsuario";
+	$stmt = $connection->prepare($sql);
+	$stmt->bindValue(':idUsuario', $idUsuario);
+	$stmt->execute();
+	if($stmt->rowCount() > 0) {
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		$qtdeSeguidores = $result['qtde_seguidores'];
 	}
 
 ?>
@@ -70,7 +99,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="home.php"><img src="imagens/icone_twitter.png" /></a>
+				<a href="home.php"><img src="imagens/icone_twitter.png" /></a> Bem-vindo(a): <strong><?= $_SESSION['usuario'] ?></strong>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">
@@ -93,10 +122,10 @@
 
 					<hr />
 					<div class='col-md-6'>
-						TWEETS <br /> 1
+						TWEETS <br /> <?= $qtdeTweets ?>
 					</div>
 					<div class='col-md-6'>
-						SEGUIDORES <br /> 1
+						SEGUIDORES <br /> <?= $qtdeSeguidores ?>
 					</div>
 				</div>
 			</div>
